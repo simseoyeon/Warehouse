@@ -1,0 +1,28 @@
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" id="contents">
+		<section>
+			<br>
+			<h1>(제품별)출고 매출 이익통계</h1>
+			<br>
+			<table>
+				<tr>
+					<th class="size-100 align-center">제품코드</th>
+					<th class="size-150 align-center">제품명</th>
+					<th class="size-100 align-center">출고수량</th>
+					<th class="size-150 align-right">출고매출이익</th>
+				</tr>
+				<tr th:each="dto : ${list}">
+					<td class="align-center" th:text="${dto.p_code}"></td>
+					<td class="align-center" th:text="${dto.p_name}"></td>
+					<td class="align-center" th:text="${dto.tot_cnt}"></td>
+					<td class="align-right" th:text="'&#92; '+ ${#numbers.formatInteger(dto.tot_outcost, 1, 'COMMA')}"></td>
+				</tr>
+				<tr>
+					<td class="align-center" colspan=2>합계</td>
+					<td class="align-right" th:text="${#tot_cnt}"></td>
+					<td class="align-right" th:text="'&#92; '+ ${#numbers.formatInteger(tot_outcost, 1, 'COMMA')}"></td>
+				</tr>
+			</table>
+		</section>
+	</div>
+</html>

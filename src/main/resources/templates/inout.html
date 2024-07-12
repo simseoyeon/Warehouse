@@ -1,0 +1,65 @@
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" id="contents">
+		<section>
+			<br>
+			<h1>입출고 등록</h1>
+			<br>
+			<form name="inoutForm" action="regist" method="post">
+				<table>
+					<tr>
+						<td class="align-center size-150" >입출고번호</td>
+						<td class ="size-400">
+							<input type="text" name="t_no" th:value="${nextno}" readonly>예)20200006
+						</td>
+					</tr>
+					<tr>
+						<td class="align-center">제품코드</td>
+						<td>
+							<input type="text" name="p_code">
+						</td>
+					</tr>
+					<tr>
+						<td class="align-center">입출고구분</td>
+						<td>
+							<input type="radio" name="t_type" value="I" checked>입고
+							<input type="radio" name="t_type" value="O">출고
+						</td>
+					</tr>
+					<tr>
+						<td class="align-center">수량</td>
+						<td>
+							<input type="text" name="t_cnt">
+						</td>
+					</tr>
+					<tr>
+						<td class="align-center">거래일자</td>
+						<td>
+							<input type="text" name="t_date">
+						</td>
+					</tr>
+					<tr>
+						<td class="align-center">거래처</td>
+						<td>
+							<select name="c_code">
+							<option value="" selected>거래처명</option>
+							<option value="10">서울공장</option>
+							<option value="20">울산공장</option>
+							<option value="30">부산상사</option>
+							<option value="40">광주상사</option>
+							<option value="50">대전상사</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="align-center" colspan=2>
+							<input type="button" value="입출고등록" onclick="registInout()">
+							<input type="reset" value="다시쓰기" onclick="resetInout()">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</section>
+		
+		<script src"../static/js/script.js"></script>
+	</div>
+</html>

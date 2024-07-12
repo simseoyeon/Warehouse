@@ -1,0 +1,31 @@
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" id="contents">
+		<section>
+			<br>
+			<h1>입출고 내역 조회</h1>
+			<br>
+			<table>
+				<tr>
+					<th class="size-150 align-center">입출고번호</th>
+					<th class="size-150 align-center">제품코드</th>
+					<th class="size-150 align-center">제품명</th>
+					<th class="size-150 align-center">입출고구분</th>
+					<th class="size-150 align-center">수량</th>
+					<th class="size-150 align-center">거래처</th>
+					<th class="size-150 align-center">거래일자</th>
+				</tr>
+				
+				<tr th:each="dto : ${list}">
+				<td class="align-center" th:text="${dto.t_no}"></td>
+				<td class="align-center" th:text="${dto.p_code}"></td>
+				<td class="align-center" th:text="${dto.p_name}"></td>
+				<td class="align-center" th:text="${dto.t_type == 'I'} ? '입고' : '출고'"></td>
+				<td class="align-center" th:text="${dto.t_cnt}"></td>
+				<td class="align-center" th:text="${dto.c_name}"></td>
+				<td class="align-center" th:text="${dto.t_date}"></td>
+				</tr>
+				
+			</table>
+		</section>
+	</div>
+</html>
